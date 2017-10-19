@@ -1,10 +1,21 @@
-package com.example.request;
+package com.example.bean;
 
 public class CoeffRequest {
 	
 	private String expression1;
 	private String expression2;
 	private String uuid;
+	
+	public CoeffRequest(){
+		
+	}	
+	public CoeffRequest(String expression1, String expression2, String uuid) {
+		
+		this.expression1 = expression1;
+		this.expression2 = expression2;
+		this.uuid = uuid;
+	}
+	
 	public String getExpression1() {
 		return expression1;
 	}

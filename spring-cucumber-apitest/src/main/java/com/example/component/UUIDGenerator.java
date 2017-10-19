@@ -1,14 +1,19 @@
 package com.example.component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
-
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ * @author sarath
+ * UUID Generator used to create Unique Identifers used in request parameter.
+ * Created UUID will be available in the server cache.
+ * 
+ */
 @Component
 public class UUIDGenerator {
 	
@@ -31,8 +36,9 @@ public class UUIDGenerator {
 		return uid;
 	}
 	
+	//testing -> use test to break the validation
 	public boolean validateUID(String uid){
-		if(uid.equals("test"))
+		if(uid.equals("test")) 
 			return true;
 		return uidMap.containsValue(uid);
 	}
@@ -40,10 +46,6 @@ public class UUIDGenerator {
 	public boolean  clearUID(){
 		uidMap.clear();
 		return uidMap.isEmpty();
-	}
-	
-	public void InvalidateUID(UUID uid){
-		// TODO 
 	}
 	
 	public boolean isUIDAvailable(){

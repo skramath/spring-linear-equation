@@ -6,5 +6,4 @@ public interface EquationService {
 	
 	public CoefficentBean solve2x2LinearEquation( CoefficentBean coefficentBean);
 	
-
 }

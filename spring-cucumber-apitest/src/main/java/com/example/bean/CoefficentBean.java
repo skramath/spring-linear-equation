@@ -9,6 +9,17 @@ public class CoefficentBean {
 	public double k1;
 	public double k2;
 	public String message;
+	
+	public CoefficentBean(){
+		
+	}
+	
+	public CoefficentBean(double x11,double y12,String message) {
+		this.x11 = x11;
+		this.y12 = y12;
+		this.message = message;
+	}
+	
 	public double getX11() {
 		return x11;
 	}

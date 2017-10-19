@@ -7,8 +7,6 @@ import java.io.StringWriter;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.client.ClientHttpResponse;
 
-import com.example.bean.CoefficentBean;
-import com.example.response.CoeffReponse;
 
 public class ResponseResults {
 	
