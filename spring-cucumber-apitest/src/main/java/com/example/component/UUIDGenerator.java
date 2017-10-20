@@ -1,10 +1,17 @@
 package com.example.component;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,16 +24,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class UUIDGenerator {
 	
+	Predicate<String> peek = s -> s.equals("test");
+	Predicate<Map<Integer,String>> p2 = map -> map.isEmpty();
+	
 	HashMap<Integer, String> uidMap  = new HashMap<Integer, String>();
 	List<UUID> 			   uids    = new ArrayList<UUID>();
 	
 	@PostConstruct
 	public void generateUUID(){
 		
-		uids.add(UUID.randomUUID());
-		uids.add(UUID.randomUUID());
-		uids.add(UUID.randomUUID());
-		uids.add(UUID.randomUUID());
+		uids = Stream.generate(UUID::randomUUID).
+				 limit(4).collect(Collectors.toList());
 	}	
 	
 	public UUID retieveUUID(){
@@ -38,14 +46,14 @@ public class UUIDGenerator {
 	
 	//testing -> use test to break the validation
 	public boolean validateUID(String uid){
-		if(uid.equals("test")) 
+		if(peek.test(uid)) 
 			return true;
 		return uidMap.containsValue(uid);
 	}
 	
 	public boolean  clearUID(){
 		uidMap.clear();
-		return uidMap.isEmpty();
+		return p2.test(uidMap);
 	}
 	
 	public boolean isUIDAvailable(){
