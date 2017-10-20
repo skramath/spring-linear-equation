@@ -5,10 +5,9 @@ Getting Started
 Features Include:*
 Java 1.8
 Spring boot 1.3.5.RELEASE
-Maven 1.8
-Xstream 1.4.9 message Convertors
 
-Steps to Test :
+
+Steps to Test the api:
 1. mvn clean install
 2. mvn test
 
